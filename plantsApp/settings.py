@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.GestionDatos',
     'apps.GestionUsuarios',
+    #'apps.DBmanager',
+    #'apps.DBtests',
 ]
 
 MIDDLEWARE = [

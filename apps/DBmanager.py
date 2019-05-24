@@ -1,5 +1,5 @@
-from apps.GestionUsuarios.models import *
 from apps.GestionDatos.models import *
+from apps.GestionUsuarios.models import *
 
 # https://docs.djangoproject.com/en/2.2/topics/db/queries/
 
@@ -11,16 +11,12 @@ def createUser(username, password, mail):
 
 
 def newMeasure(user, temperature, pressure, humidity, plant_type):
-    Mediciones.objects.create(User=user,
-                              Temperature=temperature,
-                              Pressure=pressure,
-                              Humidity=humidity,
-                              Plant_type=plant_type)
     measure = Mediciones(User=user,
                          Temperature=temperature,
                          Pressure=pressure,
                          Humidity=humidity,
                          Plant_type=plant_type)
+    measure.save()
 
 
 def getPassword(username):
