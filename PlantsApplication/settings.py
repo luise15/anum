@@ -39,6 +39,7 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
     'apps.GestionDatos',
     'apps.GestionUsuarios',
+    'apps.GestionPlantas',
 )
 
 THIRD_PARTY_APPS = (
@@ -67,7 +68,7 @@ ROOT_URLCONF = 'PlantsApplication.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

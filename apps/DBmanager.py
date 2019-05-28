@@ -1,5 +1,6 @@
 from apps.GestionDatos.models import *
 from apps.GestionUsuarios.models import *
+from apps.GestionPlantas.models import *
 
 
 # https://docs.djangoproject.com/en/2.2/topics/db/queries/
@@ -14,13 +15,12 @@ def createUser(username, password, mail):
         user.save()
 
 
-def newMeasure(username, temperature, pressure, humidity, plant_type):
-    user = Usuario.objects.filter(Username=username).get()
-    measure = Mediciones(User=user,
+def newMeasure(ip, temperature, pressure, humidity):
+    plant = Plantas.objects.filter(plant_ip=ip).get()
+    measure = Mediciones(plant=plant,
                          Temperature=temperature,
                          Pressure=pressure,
-                         Humidity=humidity,
-                         Plant_type=plant_type)
+                         Humidity=humidity)
     measure.save()
 
 
@@ -55,3 +55,45 @@ def updateUsername(old_username, new_username):
     user.Username = new_username
     user.save()
     Usuario.objects.filter(Username=old_username).delete()
+
+
+def newPlant(username, plant_name, plant_ip, plant_type):
+    user = Usuario.objects.filter(Username=username).get()
+    plant = Plantas(User=user,
+                    plant_name=plant_name,
+                    plant_ip=plant_ip,
+                    plant_type=plant_type)
+    plant.save()
+
+
+def get_plant_name(ip):
+    plant = Plantas.objects.filter(plant_ip=ip).get()
+    return plant.plant_name
+
+
+def get_plant_type(ip):
+    plant = Plantas.objects.filter(plant_ip=ip).get()
+    return plant.plant_type
+
+
+def get_plant_user(ip):
+    plant = Plantas.objects.filter(plant_ip=ip).get()
+    return plant.User
+
+
+def get_user_plants(username):
+    user = Usuario.objects.filter(Username=username).get()
+    plant = Plantas.objects.filter(User=user)
+    return plant
+
+
+def update_plant_name(ip, new_name):
+    plant = Plantas.objects.filter(plant_ip=ip).get()
+    plant.plant_name = new_name
+    plant.save()
+
+
+def update_plant_type(ip, new_type):
+    plant = Plantas.objects.filter(plant_ip=ip).get()
+    plant.plant_type = new_type
+    plant.save()
