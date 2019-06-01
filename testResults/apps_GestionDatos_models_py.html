@@ -91,7 +91,7 @@
 <p id="t4" class="pln"><span class="com"># Create your models here.</span><span class="strut">&nbsp;</span></p>
 <p id="t5" class="stm mis"><span class="key">class</span> <span class="nam">Mediciones</span><span class="op">(</span><span class="nam">models</span><span class="op">.</span><span class="nam">Model</span><span class="op">)</span><span class="op">:</span><span class="strut">&nbsp;</span></p>
 <p id="t6" class="stm mis">    <span class="nam">plant</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">ForeignKey</span><span class="op">(</span><span class="nam">Plantas</span><span class="op">,</span> <span class="nam">null</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">blank</span><span class="op">=</span><span class="key">True</span><span class="op">,</span> <span class="nam">on_delete</span><span class="op">=</span><span class="nam">models</span><span class="op">.</span><span class="nam">CASCADE</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
-<p id="t7" class="stm mis">    <span class="nam">Temperature</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">PositiveSmallIntegerField</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
+<p id="t7" class="stm mis">    <span class="nam">Temperature</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">SmallIntegerField</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t8" class="stm mis">    <span class="nam">Pressure</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">PositiveSmallIntegerField</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t9" class="stm mis">    <span class="nam">Humidity</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">PositiveSmallIntegerField</span><span class="op">(</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
 <p id="t10" class="stm mis">    <span class="nam">Time</span> <span class="op">=</span> <span class="nam">models</span><span class="op">.</span><span class="nam">TimeField</span><span class="op">(</span><span class="nam">auto_now_add</span><span class="op">=</span><span class="key">True</span><span class="op">)</span><span class="strut">&nbsp;</span></p>
@@ -110,7 +110,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v4.5.3</a>,
-            created at 2019-05-27 22:13
+            created at 2019-05-31 13:26
         </p>
     </div>
 </div>

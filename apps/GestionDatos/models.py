@@ -4,7 +4,7 @@ from apps.GestionPlantas.models import Plantas
 # Create your models here.
 class Mediciones(models.Model):
     plant = models.ForeignKey(Plantas, null=True, blank=True, on_delete=models.CASCADE)
-    Temperature = models.PositiveSmallIntegerField()
+    Temperature = models.SmallIntegerField()
     Pressure = models.PositiveSmallIntegerField()
     Humidity = models.PositiveSmallIntegerField()
     Time = models.TimeField(auto_now_add=True)
