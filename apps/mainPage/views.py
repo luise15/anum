@@ -12,7 +12,7 @@ def user_view(request):
         form = PlantForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('index2')
+        return redirect('index')
     else:
         form = PlantForm()
 

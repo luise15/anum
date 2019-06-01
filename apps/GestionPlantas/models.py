@@ -1,6 +1,7 @@
 from django.db import models
 from apps.GestionUsuarios.models import Usuario
 from apps.TiposPlantas.models import TipoPlanta
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Plantas(models.Model):

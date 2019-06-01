@@ -10,16 +10,16 @@ class PlantForm(forms.ModelForm):
         fields = \
             [
                 'Username',
-                "Password",
-                "Mail"
+                "Mail",
+                "Password"
             ]
         labels = {
             "Username": "Nombre Usuario",
-            "Password": "Contraseña",
-            "Mail": "Mail"
+            "Mail": "Mail",
+            "Password": "Contraseña"
         }
         widgets = {
             "Username": forms.TextInput(attrs={'class': 'form-control'}),
-            "Password": forms.PasswordInput(),
-            "Mail": forms.EmailInput()
+            "Mail": forms.EmailInput(),
+            "Password": forms.PasswordInput()
         }
