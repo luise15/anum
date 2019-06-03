@@ -1,4 +1,12 @@
 {% load staticfiles %}
+
+<script>
+function goHome() {
+  window.location.href="../../../";
+}
+</script>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,19 +39,33 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">ANUM.</a>
+      <a class="navbar-brand" href="javascript:goHome();">ANUM.</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+            {% block navigation %}
+          <li class="nav-item active"><a href="javascript:goHome();" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="about.html" class="nav-link">Acerca</a></li>
           <li class="nav-item"><a href="forums.html" class="nav-link">Foro</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contacto</a></li>
           <li class="nav-item"><a href="sell.html" class="nav-link">Venta</a></li>
-          <li class="nav-item cta"><a href="usuario/" class="nav-link"><span>Iniciar sesion</span></a></li>
+          {% if user.is_authenticated %}
+			<li><a href="">{{ user.get_username }}</a>
+						<ul>
+							<li><a href="accounts/myplants/">Mis Plantas</a></li>
+							<li><a href="">Mis Datos</a></li>
+							<li><a href="">Opciones</a></li>
+                            <li><a href="../logout/">Cerrar sesion</a></li>
+						</ul>
+			</li>
+          {% else %}
+              <li class="nav-item cta"><a href="accounts/login/" class="nav-link"><span>Iniciar sesion</span></a></li>
+          {% endif %}
+
+            {% endblock %}
         </ul>
       </div>
     </div>
@@ -55,6 +77,8 @@
       <div class="circle-bg"></div>
       <div class="circle-bg-2"></div>
       <div class="container-fluid">
+
+        {% block superheader %}
         <div class="slider-text d-md-flex align-items-center" data-scrollax-parent="true">
 
           <div class="one-forth pr-md-4 ftco-animate align-self-md-center" data-scrollax=" properties: { translateY: '70%' }">
@@ -73,8 +97,10 @@
 	          </div>
           </div>
         </div>
+        {% endblock %}
       </div>
     </div>
+
 
 
     {% block content %}

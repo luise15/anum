@@ -11,7 +11,7 @@ class DBTests(TestCase):
         create_plant('Tsunami', 'maria juana', '172.16.254.1', 'Cannabis')
 
     def test_create_user(self):
-        self.assertEqual(Usuario.objects.count(), 1)
+        self.assertEqual(User.objects.count(), 1)
         self.assertRaises(AttributeError, create_user, 'Tsunami', 'TSUNAMI1234', 'tsunami@yahoo.com')
 
     def test_new_measure(self):
@@ -42,12 +42,12 @@ class DBTests(TestCase):
         update_username('Tsunami', 'tusunami')
         self.assertEqual('tsu12345', get_password('tusunami'))
         self.assertEqual('tusunami@gmail.com', get_mail('tusunami'))
-        self.assertEqual(Usuario.objects.filter(Username='Tsunami').count(), 0)
+        self.assertEqual(User.objects.filter(username='Tsunami').count(), 0)
 
     def test_delete_user(self):
-        self.assertEqual(Usuario.objects.count(), 1)
+        self.assertEqual(User.objects.count(), 1)
         delete_user('Tsunami')
-        self.assertEqual(Usuario.objects.count(), 0)
+        self.assertEqual(User.objects.count(), 0)
 
     def test_get_plant_name(self):
         name = get_plant_name('172.16.254.1')
@@ -60,11 +60,11 @@ class DBTests(TestCase):
 
     def test_get_plant_users(self):
         user = get_plant_users('172.16.254.1')
-        real_user = Usuario.objects.filter(Username='Tsunami').get()
+        real_user = User.objects.filter(username='Tsunami').get()
         self.assertEqual(user, real_user)
 
     def test_get_user_plants(self):
-        user = Usuario.objects.filter(Username='Tsunami').get()
+        user = User.objects.filter(username='Tsunami').get()
         plant = Plantas.objects.filter(User=user).get()
         user_plant = get_user_plants('Tsunami').get()
         self.assertEqual(plant, user_plant)
@@ -104,3 +104,7 @@ class DBTests(TestCase):
         self.assertTrue(log_in('Tsunami', 'tsu12345'))
         self.assertFalse(log_in('Marepoto', 'tsu12345'))
         self.assertFalse(log_in('Tsunami', '123456asgewq'))
+
+    def test_get_user(self):
+        user = User.objects.get(username='Tsunami')
+        self.assertEqual(get_user('Tsunami'), user)

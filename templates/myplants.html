@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Tipo</td>
+            <td>IP</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% if plants %}
+        {% for plant in plants %}
+        <tr>
+            <td>{{ plant.plant_name }}</td>
+            <td>{{ plant.plant_type.nombre }}</td>
+            <td>{{ plant.plant_ip }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+            <h1> Aún no tienes maceteros.</h1>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block superheader %}
+<div class="hero-wrap">
+      <div class="overlay"></div>
+      <div class="circle-bg"></div>
+      <div class="circle-bg-2"></div>
+      <div class="container-fluid">
+        <div class="row no-gutters d-flex slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="new_plant/">Registrar planta</a></span>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Mis plantas</h1>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}

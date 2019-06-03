@@ -1,25 +1,25 @@
 from django import forms
-from apps.GestionUsuarios.models import Usuario
+from django.contrib.auth.models import User
 
 
 class PlantForm(forms.ModelForm):
 
     class Meta:
-        model = Usuario
+        model = User
 
         fields = \
             [
-                'Username',
-                "Mail",
-                "Password"
+                'username',
+                "email",
+                "password"
             ]
         labels = {
-            "Username": "Nombre Usuario",
-            "Mail": "Mail",
-            "Password": "Contraseña"
+            "username": "Nombre Usuario",
+            "email": "Mail",
+            "password": "Contraseña"
         }
         widgets = {
-            "Username": forms.TextInput(attrs={'class': 'form-control'}),
-            "Mail": forms.EmailInput(),
-            "Password": forms.PasswordInput()
+            "username": forms.TextInput(attrs={'class': 'form-control'}),
+            "email": forms.EmailInput(),
+            "password": forms.PasswordInput()
         }

@@ -1,19 +1,23 @@
 from apps.GestionDatos.models import *
-from apps.GestionUsuarios.models import *
 from apps.GestionPlantas.models import *
 from apps.TiposPlantas.models import *
+from django.contrib.auth.models import User
 
 
 # https://docs.djangoproject.com/en/2.2/topics/db/queries/
 
 def create_user(username, password, mail):
-    if Usuario.objects.filter(Username=username).count() == 1:
+    if User.objects.filter(username=username).count() == 1:
         raise AttributeError('Ya esta ocupado el nombre de usuario')
     else:
-        user = Usuario(Username=username,
-                       Password=password,
-                       Mail=mail)
+        user = User(username=username,
+                    password=password,
+                    email=mail)
         user.save()
+
+
+def get_user(username):
+    return User.objects.get(username=username)
 
 
 def new_measure(ip, temperature, pressure, humidity):
@@ -26,40 +30,40 @@ def new_measure(ip, temperature, pressure, humidity):
 
 
 def get_password(username):
-    usuario = Usuario.objects.filter(Username=username).get()
-    return usuario.Password
+    usuario = User.objects.filter(username=username).get()
+    return usuario.password
 
 
 def get_mail(username):
-    usuario = Usuario.objects.filter(Username=username).get()
-    return usuario.Mail
+    usuario = User.objects.filter(username=username).get()
+    return usuario.email
 
 
 def delete_user(username):
-    Usuario.objects.filter(Username=username).delete()
+    User.objects.filter(username=username).delete()
 
 
 def update_password(username, new_password):
-    user = Usuario.objects.filter(Username=username).get()
-    user.Password = new_password
+    user = User.objects.filter(username=username).get()
+    user.password = new_password
     user.save()
 
 
 def update_mail(username, new_mail):
-    user = Usuario.objects.filter(Username=username).get()
-    user.Mail = new_mail
+    user = User.objects.filter(username=username).get()
+    user.email = new_mail
     user.save()
 
 
 def update_username(old_username, new_username):
-    user = Usuario.objects.filter(Username=old_username).get()
-    user.Username = new_username
+    user = User.objects.filter(username=old_username).get()
+    user.username = new_username
     user.save()
-    Usuario.objects.filter(Username=old_username).delete()
+    User.objects.filter(username=old_username).delete()
 
 
 def create_plant(username, plant_name, plant_ip, plant_type_name):
-    user = Usuario.objects.filter(Username=username).get()
+    user = User.objects.filter(username=username).get()
     plant_type = TipoPlanta.objects.filter(nombre=plant_type_name).get()
     plant = Plantas(User=user,
                     plant_name=plant_name,
@@ -73,6 +77,10 @@ def get_plant_name(ip):
     return plant.plant_name
 
 
+def get_plant(ip):
+    return Plantas.objects.get(plant_ip=ip)
+
+
 def get_plant_type(ip):
     plant = Plantas.objects.filter(plant_ip=ip).get()
     return plant.plant_type
@@ -84,7 +92,7 @@ def get_plant_users(ip):
 
 
 def get_user_plants(username):
-    user = Usuario.objects.filter(Username=username).get()
+    user = User.objects.filter(username=username).get()
     plant = Plantas.objects.filter(User=user)
     return plant
 
@@ -124,7 +132,7 @@ def get_plant_limits(type_name):
 
 
 def exist_user(username):
-    count = Usuario.objects.filter(Username=username).count()
+    count = User.objects.filter(username=username).count()
     if count > 0:
         return True
     return False
@@ -132,7 +140,7 @@ def exist_user(username):
 
 def log_in(username, password):
     if exist_user(username):
-        p = Usuario.objects.filter(Username=username).get()
-        if p.Password == password:
+        p = User.objects.filter(username=username).get()
+        if p.password == password:
             return True
     return False

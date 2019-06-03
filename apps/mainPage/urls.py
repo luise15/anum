@@ -4,6 +4,5 @@ from django.conf.urls import url
 
 
 urlpatterns = [
-    url(r'registrar', user_view, name='user_view'),
     url(r'', index, name='index'),
 ]
