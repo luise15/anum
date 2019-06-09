@@ -1,5 +1,5 @@
 import firebase from "firebase";
-import UIconfig from "UIconfig"
+import UIconfig from "UIconfig";
 
 function create_user(email, password){
     return firebase.auth().createUserWithEmailAndPassword(email, password)
