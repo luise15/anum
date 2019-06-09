@@ -1,0 +1,8 @@
+{
+  "name": "anum",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "firebase": "^6.1.1"
+  }
+}
