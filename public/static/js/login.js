@@ -43,6 +43,7 @@ function sign_in(email, password){
   return firebase.auth().signInWithEmailAndPassword(email, password)
       .then(function () {
         let username = firebase.auth().currentUser.displayName;
+        //let username = firebase.auth().currentUser.email;
         window.location.href = "userView.html?usr="+username;
       })
       .catch(function(error) {

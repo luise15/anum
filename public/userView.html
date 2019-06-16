@@ -15,8 +15,39 @@
 </head>
 
 <body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+<script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+<!-- Import scripts with methods -->
+<script src="static/js/login.js"></script>
+
+
+<input type="button" value="Home" id="home" />
+<input type="button" value="Cerrar Sesión" id="logout" />
+<input type="button" value="Detalle de cuenta" id="detalle" />
+
+
 <h1 id="nombreUsuario"></h1>
   <p> ESTA ES LA PAGINA DE BIENVENIDA </p>
+
+<div class="center">
+  <h1>Tus plantas</h1>
+  <input type="button" value="Registrar planta" id="regist_planta" />
+
+</div>
+
+<input type="button" value="Registrar planta" id="regist_planta" />
+
+
 
 <img src="static/images/Logo.png" width="160" height="205">
 

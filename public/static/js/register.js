@@ -33,7 +33,7 @@ function registrar() {
         alert('Contraseña muy débil')
     }
     else{
-        create_user(email.value, pass1.value);
+        create_user(email.value, pass1.value, username.value);
     }
 }
 
@@ -49,9 +49,20 @@ function isEmpty(field) {
 }
 
 
-function create_user(email, password){
-    return firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
-        //update_username(username.value, user_credential.USER);
+function create_user(email, password, username){
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+        let userCredentialPromise = firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+            console.log(error);
+        });
+        let user = firebase.auth().currentUser;
+        user.updateProfile({
+            displayName: username
+        }).catch(function (error) {
+            alert('Hubo un error en crear nombre de usuario')
+        });
+        firebase.auth().signOut().catch(function (error) {
+            console.log(error);
+        });
         window.location.href = "index.html";
     })
         .catch(function(error) {
@@ -69,17 +80,4 @@ function create_user(email, password){
             }
             console.log(error);
         });
-}
-
-function update_username(name, user) {
-    if (user != null){
-        user.updateProfile({
-            displayName: name
-        }).then(function() {}).catch(function(error) {
-            alert('Hubo un error en la actualización.');
-        });
-    }
-    else{
-        console.log('no se pudo cambiar nombre de usuario');
-    }
 }
