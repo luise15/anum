@@ -1,0 +1,46 @@
+<!--HTML es el que le da la estructura a la pagina web-->
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8" />
+  <title>Anum, comunicate con tu planta</title>
+</head>
+
+<body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+<script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+<!-- Import scripts with methods -->
+<script src="static/js/USERfunctions.js" type="module"></script>
+
+
+<button type="button" id="button1">Login</button>
+<button type="button" id="button2">newPlant</button>
+
+<pre id="object"></pre>
+
+
+
+<script>
+  const preObject = document.getElementById('object');
+  const dbRefOjetc = firebase.database().ref().child('object');//crea la rama hijo
+  //dbRefOjetc.on('value', snap => console.log(snap.val()));
+  dbRefOjetc.on('value', snap => {
+    preObject.innerText = JSON.stringify(snap.val(), null, 3);
+  });
+  //dbRefOjetc.on('value', snap => document.write(snap.val()));
+</script>
+</body>
+</html>

@@ -2,9 +2,10 @@
   "name": "anum",
   "version": "1.0.0",
   "dependencies": {
+    "firebase-tools": "^7.0.0",
     "istanbul": "^0.4.5"
   },
   "devDependencies": {
-    "firebase": "^6.1.1"
+    "firebase": "^6.2.0"
   }
 }
