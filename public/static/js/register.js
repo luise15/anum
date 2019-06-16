@@ -10,7 +10,7 @@ function registrar() {
     var email = document.getElementById('email');
     var checkbox = document.getElementById('checkbox');
 
-    
+
     if (isEmpty(email)){
         alert('Ingresa email')
     }
@@ -33,9 +33,7 @@ function registrar() {
         alert('Contraseña muy débil')
     }
     else{
-        let user_credential = create_user(email.value, pass1.value);
-        update_username(username.value, user_credential.USER);
-        window.location.href = "index.html";
+        create_user(email.value, pass1.value);
     }
 }
 
@@ -52,7 +50,10 @@ function isEmpty(field) {
 
 
 function create_user(email, password){
-    return firebase.auth().createUserWithEmailAndPassword(email, password)
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+        //update_username(username.value, user_credential.USER);
+        window.location.href = "index.html";
+    })
         .catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;

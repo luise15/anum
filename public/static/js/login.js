@@ -19,22 +19,53 @@ window.onload = function(){
 
 function entrar()
 {
-  var usuario = document.getElementById("User");
+  var email = document.getElementById("Email");
   var contrasena = document.getElementById("Password");
-  if (usuario.value === "pirita" && contrasena.value === "piritapass" )
-  {
-    window.location.href = "userView.html?usr="+usuario.value;
+
+  if(isEmpty(email)){
+    alert('Ingresa Email')
   }
-  else
-  {
-    alert("Usuario y/o contrasena equivocados");
+  else if (isEmpty(contrasena)){
+    alert('Ingresa una contraseña')
+  }
+  else{
+    sign_in(email.value, contrasena.value);
   }
 }
-
-
 
 
 function registrar()
 {
     window.location.href = "register.html";
+}
+
+function sign_in(email, password){
+  return firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(function () {
+        let username = firebase.auth().currentUser.displayName;
+        window.location.href = "userView.html?usr="+username;
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        if (errorCode === 'auth/wrong-password') {
+          alert('Contraseña incorrecta.');
+        }
+        else if (errorCode === 'auth/user-not-found') {
+          alert('Usuario no registrado.');
+        }
+        else if (errorCode === 'auth/invalid-email'){
+          alert('Email inválido.');
+        }
+        else {
+          alert(errorMessage);
+        }
+        console.log(error);
+      });
+}
+
+function isEmpty(field) {
+  var fieldData = field.value;
+  return fieldData.length === 0 || fieldData === "";
 }
