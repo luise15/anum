@@ -16,10 +16,12 @@ Dentro de la carpeta public hay: archivos .html y la carpeta 'static'.
   
   La carpeta estatic tiene 3 subcarpetas:
   
-    /CSS: En la cual se guardan archivos .css, que son archivos que sirven para definir la fuente de las letras, su color
+    CSS: En la cual se guardan archivos .css, que son archivos que sirven para definir la fuente de las letras, su color
          y formato. Además, sirven para definir los colores de la pagina web.
-   /IAMGES : Que tiene imagenes que luego se van a mostrar en la pagina (al hacer deploy tambien estamos subiendo imagenes)
-   /JS: Que contiene los archivos .js que implementan la logica del negocio.
+   
+   IMAGES : Que tiene imagenes que luego se van a mostrar en la pagina (al hacer deploy tambien estamos subiendo imagenes)
+   
+   JS: Que contiene los archivos .js que implementan la logica del negocio.
  
 Principalmente estaremos trabajando con los archivos .html y con .js
 
