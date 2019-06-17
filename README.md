@@ -13,13 +13,15 @@ La carpeta 'public' es la que ocupa firebase para hacer el deploy. Deploy signif
 
 Dentro de la carpeta public hay: archivos .html y la carpeta 'static'.
   El archivo index.html es el primero que firebase ejecuta y es la primera vista que el usuario va a visualizar.
+  
   La carpeta estatic tiene 3 subcarpetas:
-    css: en la cual se guardan archivos .css, que son archivos que sirven para definir la fuente de las letras, su color
+  
+    /CSS: En la cual se guardan archivos .css, que son archivos que sirven para definir la fuente de las letras, su color
          y formato. Además, sirven para definir los colores de la pagina web.
-   images: que tiene imagenes que luego se van a mostrar en la pagina (al hacer deploy tambien estamos subiendo imagenes)
-   js: que contiene los archivos .js que implementan la logica del negocio.
+   /IAMGES : Que tiene imagenes que luego se van a mostrar en la pagina (al hacer deploy tambien estamos subiendo imagenes)
+   /JS: Que contiene los archivos .js que implementan la logica del negocio.
  
 Principalmente estaremos trabajando con los archivos .html y con .js
 
 El resto de las carpetas no las toquen.
-Ese ha sido un buen resumen de la distribucion de nuestro repositorio.
+Ese ha sido un buen resumen de la distribucion de nuestro repositorio
