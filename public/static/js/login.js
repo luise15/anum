@@ -41,9 +41,15 @@ function registrar()
 
 function sign_in(email, password){
   return firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(function () {
+      .then(function (auth) {
         let username = firebase.auth().currentUser.displayName;
-        //let username = firebase.auth().currentUser.email;
+        let email = firebase.auth().currentUser.email;
+        let userid = firebase.auth().currentUser.uid;
+        localStorage.setItem('email', email);
+        localStorage.setItem('username', username);
+        localStorage.setItem('id', userid);
+        localStorage.setItem('auth', auth);
+        localStorage.setItem('currentUser', firebase.auth().currentUser);
         window.location.href = "userView.html?usr="+username;
       })
       .catch(function(error) {
