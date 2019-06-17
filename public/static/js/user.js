@@ -5,6 +5,10 @@ window.onload = function(){
     document.getElementById('logout').onclick = sign_out;
     document.getElementById('regist_planta').onclick = register_plant;
     document.getElementById('home').onclick = go_home;
+
+
+    var tblRef = document.getElementById('tablita');
+
 };
 
 
@@ -19,9 +23,10 @@ function sign_out() {
 }
 
 function register_plant() {
-    window.location.href = "/new_plant.html"
+    window.location.href = "/new_plant.html";
 }
 
 function go_home() {
-    window.location.href = "index.html"
+    window.location.href = "index.html";
 }
+
