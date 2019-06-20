@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bot</title>
+</head>
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+<script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+<!-- Import scripts with methods -->
+<script src="static/js/bot.js"></script>
+
+<h1>Streaming de datos</h1>
+
+<p>
+    <br>
+    <input type="text" placeholder="ID planta" id="id" />
+    <br>
+    <input type="number" placeholder="Diferencia de tiempo [s]" id="dif_t" />
+    <br>
+    <input type="number" placeholder="Temperatura max" id="t_max" />
+    <input type="number" placeholder="Temperatura min" id="t_min" />
+    <br>
+    <input type="number" placeholder="Humedad max" id="h_max" />
+    <input type="number" placeholder="Humedad min" id="h_min" />
+    <br>
+    <input type="number" placeholder="Iluminación max" id="l_max" />
+    <input type="number" placeholder="Iluminación min" id="l_min" />
+    <br>
+    <label class="anim">
+        <input type="checkbox" class="checkbox" required="" id="checkbox">
+        <span>Comenzar streaming</span>
+        <p id="parag"></p>
+    </label>
+</p>
+
+<h1>Enviar dato</h1>
+<p>
+    <br>
+    <input type="text" placeholder="ID planta" id="id2" />
+    <br>
+    <input type="number" placeholder="Temperatura" id="temp" />
+    <br>
+    <input type="number" placeholder="Humedad" id="humid" />
+    <br>
+    <input type="number" placeholder="Iluminación" id="lumen" />
+    <br>
+    <input type="button" value="Enviar" id="confirmar">
+</p>
+
+
+</body>
+</html>

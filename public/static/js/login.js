@@ -50,7 +50,7 @@ function sign_in(email, password){
         localStorage.setItem('id', userid);
         localStorage.setItem('auth', auth);
         localStorage.setItem('currentUser', firebase.auth().currentUser);
-        window.location.href = "userView.html?usr="+username;
+        window.location.href = "userView.html?usr=" + username;
       })
       .catch(function(error) {
         // Handle Errors here.

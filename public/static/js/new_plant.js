@@ -1,5 +1,17 @@
 window.onload = function(){
     document.getElementById('volver').onclick = go_back;
+
+    var selector = document.getElementById('type');
+    let plant_types = firebase.database().ref().child('Types');
+    plant_types.once('value', function (type) {
+        type.forEach(function (t) {
+            var option = document.createElement('option');
+            option.value = t.child('type_name').val();
+            option.innerText = t.child('type_name').val();
+            selector.appendChild(option);
+        })
+    });
+
     document.getElementById('registrar').onclick = registrar_planta;
 };
 
@@ -16,7 +28,9 @@ function registrar_planta() {
     }
     else{
         create_plant(id.value, name.value, tipo.value);
-        go_back();
+        alert('Planta creada.')
+        //let username = localStorage.getItem('username');
+        //window.location.href = "userView.html?usr="+username;
     }
 }
 
@@ -32,13 +46,16 @@ function isEmpty(field) {
 
 
 function create_plant(plant_id, plant_name, plant_type) {
-    const userId = firebase.auth().currentUser.uid;
+    const userId = localStorage.getItem('id');
     let userRef = firebase.database().ref('/users/' + userId).child('plants').push();
     userRef.set({
         "plant_id" : plant_id,
         "plant_name" : plant_name,
         "plant_type" : {
             "type_name" : plant_type,
+        },
+        "mediciones": {
+
         }
     });
 }

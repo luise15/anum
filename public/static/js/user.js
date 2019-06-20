@@ -28,6 +28,30 @@ window.onload = function(){
             cell1.innerHTML = chil.child('plant_name').val();
             cell2 = row.insertCell(2);
             cell2.innerHTML = chil.child('plant_type/type_name').val();
+            let cell3 = row.insertCell(3);
+            let btn = document.createElement('input');
+            btn.type = 'button';
+            btn.className = "btn";
+            btn.value = "Ver datos";
+            btn.onclick = (function () {
+                localStorage.setItem('plant_id', chil.child('plant_id').val());
+                localStorage.setItem('plant_name', chil.child('plant_name').val());
+                localStorage.setItem('type_name', chil.child('plant_type/type_name').val());
+                window.location.href = 'plant.html'
+            });
+            cell3.appendChild(btn);
+            let cell4 = row.insertCell(3);
+            let btn2 = document.createElement('input');
+            btn2.type = 'button';
+            btn2.className = "btn";
+            btn2.value = "Editar";
+            btn2.onclick = (function () {
+                localStorage.setItem('plant_id', chil.child('plant_id').val());
+                localStorage.setItem('plant_name', chil.child('plant_name').val());
+                localStorage.setItem('type_name', chil.child('plant_type/type_name').val());
+                window.location.href = 'plant_data.html'
+            });
+            cell4.appendChild(btn2);
             index += 1;
         });
     });
@@ -39,7 +63,9 @@ window.onload = function(){
 
 function sign_out() {
     return firebase.auth().signOut().then(function () {
-        window.location.href = "index.html";
+        window.location.href = "bot.html";
+    }).then(function () {
+        localStorage.clear();
     }).catch(function (error) {
         alert('Hubo un error al cerrar la sesión.');
     });
@@ -50,5 +76,5 @@ function register_plant() {
 }
 
 function go_home() {
-    window.location.href = "index.html";
+    window.location.href = "bot.html";
 }

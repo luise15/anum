@@ -63,7 +63,7 @@ function create_user(email, password, username){
         firebase.auth().signOut().catch(function (error) {
             console.log(error);
         });
-        window.location.href = "index.html";
+        window.location.href = "bot.html";
     })
         .catch(function(error) {
             // Handle Errors here.
