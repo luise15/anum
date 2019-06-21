@@ -32,11 +32,12 @@ window.onload = function(){
             let btn = document.createElement('input');
             btn.type = 'button';
             btn.className = "btn";
-            btn.value = "Ver datos";
+            btn.value = "Ver estado";
             btn.onclick = (function () {
                 localStorage.setItem('plant_id', chil.child('plant_id').val());
                 localStorage.setItem('plant_name', chil.child('plant_name').val());
                 localStorage.setItem('type_name', chil.child('plant_type/type_name').val());
+                localStorage.setItem('plant', chil.ref.toString());
                 window.location.href = 'plant.html'
             });
             cell3.appendChild(btn);
@@ -49,6 +50,7 @@ window.onload = function(){
                 localStorage.setItem('plant_id', chil.child('plant_id').val());
                 localStorage.setItem('plant_name', chil.child('plant_name').val());
                 localStorage.setItem('type_name', chil.child('plant_type/type_name').val());
+                localStorage.setItem('plant', chil.ref.toString());
                 window.location.href = 'plant_data.html'
             });
             cell4.appendChild(btn2);
@@ -76,5 +78,5 @@ function register_plant() {
 }
 
 function go_home() {
-    window.location.href = "bot.html";
+    window.location.href = "index.html";
 }

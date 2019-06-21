@@ -65,16 +65,18 @@ function sleep(milliseconds) {
 }
 
 
-function generate_values(ID, t_max, t_min, h_max, h_min, l_max, l_min, diff_t) {
+async function generate_values(ID, t_max, t_min, h_max, h_min, l_max, l_min, diff_t) {
     let t = Math.random()*(t_max - t_min) + t_min;
     let h = Math.random()*(h_max - h_min) + h_min;
     let l = Math.random()*(l_max - l_min) + l_min;
     console.log("t: "+t+" | h: "+h+" | l: "+l);
     send_data(ID, t, h, l);
-    sleep(diff_t * 10000);
+    //sleep(diff_t * 1000);
+    console.log('Taking a break...');
+    await sleep(diff_t * 1000);
 }
 
-function send_data(ID, t, h, l) {
+async function send_data(ID, t, h, l) {
     let today = new Date();
     let date = today.getDate() + '/' + today.getMonth() + '/' + today.getFullYear();
     let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
