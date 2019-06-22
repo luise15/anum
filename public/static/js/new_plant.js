@@ -1,18 +1,32 @@
 window.onload = function(){
-    document.getElementById('volver').onclick = go_back;
 
-    var selector = document.getElementById('type');
-    let plant_types = firebase.database().ref().child('Types');
-    plant_types.once('value', function (type) {
-        type.forEach(function (t) {
-            var option = document.createElement('option');
-            option.value = t.child('type_name').val();
-            option.innerText = t.child('type_name').val();
-            selector.appendChild(option);
-        })
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            document.getElementById('volver').onclick = go_back;
+
+            var selector = document.getElementById('type');
+            let plant_types = firebase.database().ref().child('Types');
+            plant_types.once('value', function (type) {
+                type.forEach(function (t) {
+                    var option = document.createElement('option');
+                    option.value = t.child('type_name').val();
+                    option.innerText = t.child('type_name').val();
+                    selector.appendChild(option);
+                })
+            });
+
+            document.getElementById('registrar').onclick = registrar_planta;
+
+
+
+        } else {
+            // No user is signed in.
+            window.location.href = 'index.html';
+        }
     });
 
-    document.getElementById('registrar').onclick = registrar_planta;
+
 };
 
 
