@@ -13,28 +13,37 @@ window.onload = function () {
 
     document.getElementById('parag').innerText = "Streaming detenido";
 
+    var block = false;
+
+
+
     checkbox.onclick = function () {
-        if (checkbox.checked === true && (isEmpty(ID_input) || isEmpty(diff_t_input) ||
+        if (checkbox.checked && (isEmpty(ID_input) || isEmpty(diff_t_input) ||
             isEmpty(t_max_input) || isEmpty(t_min_input) || isEmpty(h_max_input) ||
             isEmpty(h_min_input) || isEmpty(l_max_input) || isEmpty(l_min_input) ||
             t_max_input.value<t_min_input.value || h_max_input.value<h_min_input.value || l_max_input.value<l_min_input.value)){
+            block = false;
             alert('Rellena todos los parámetros en Streaming de datos');
         }
-        else if(checkbox.checked === false){
+        else if(!checkbox.checked){
+            block = false;
             document.getElementById('parag').innerText = "Streaming detenido";
         }
-        while (checkbox.checked === true && !isEmpty(ID_input) && !isEmpty(diff_t_input) &&
+        if (checkbox.checked && !block && !isEmpty(ID_input) && !isEmpty(diff_t_input) &&
             !isEmpty(t_max_input) && !isEmpty(t_min_input) && !isEmpty(h_max_input) &&
             !isEmpty(h_min_input) && !isEmpty(l_max_input) && !isEmpty(l_min_input)){
+            block = true;
             document.getElementById('parag').innerText = "Enviando Datos";
-
             generate_values(ID_input.value,
                 t_max_input.value, t_min_input.value,
                 h_max_input.value, h_min_input.value,
                 l_max_input.value, l_min_input.value,
                 diff_t_input.value);
+            block = false;
         }
     };
+
+
 
 
     let id2 = document.getElementById('id2');

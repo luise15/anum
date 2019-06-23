@@ -1,6 +1,14 @@
 window.onload = function(){
-  document.getElementById('boton_entrar').onclick = entrar;
-  document.getElementById('boton_registrar').onclick = registrar;
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+      window.location.href = 'index.html';
+    }
+    else{
+      document.getElementById('boton_entrar').onclick = entrar;
+      document.getElementById('boton_registrar').onclick = registrar;
+    }
+  })
 };
 
 

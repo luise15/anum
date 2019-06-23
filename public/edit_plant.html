@@ -1,26 +1,11 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Editar Usuario</title>
-    <style>
-        body
-        {
-            background-color: #5ECB27;
-            color: white;
-            font-family: Trebuchet MS;
-        }
-        #uploader {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 50%;
-            margin-bottom: 10px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Editar Planta</title>
 </head>
-
 <body>
+
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/6.2.0/firebase-app.js"></script>
 
@@ -35,7 +20,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
 
 <!-- Import scripts with methods -->
-<script src="static/js/edit_user.js"></script>
+<script src="static/js/edit_plant.js"></script>
 
 <script>
     // Your web app's Firebase configuration
@@ -53,39 +38,31 @@
 </script>
 
 <input type="button" value="Volver" id="volver">
-<h1>Detalles del Usuario</h1>
+<h1 id="title"></h1>
 
 <div align="center">
     <img id="photo" alt="" width="50%" height="50%" src="">
+    <table id="plant_photo_tbl"></table>
 
-    <table id="upload_photo">
-    </table>
-
-    <table>
+    <table id="plant_info_tbl">
         <tr>
-            <td><h3 id="username_label">Nombre de usuario: </h3></td>
-            <td id="username_cell"><h3 id="username"></h3></td>
-            <td id="username_btn"></td>
+            <td id="name_title">Apodo:</td>
+            <td id="name_td"></td>
+            <td id="name_btn"></td>
         </tr>
         <tr>
-            <td><h3 id="email_label">Email: </h3></td>
-            <td id="mail_cell"><h3 id="mail"></h3></td>
-            <td id="email_btn"><input type="button" value="Editar"></td>
+            <td id="id_title">ID:</td>
+            <td id="id_td"></td>
+            <td id="id_btn"></td>
         </tr>
         <tr>
-            <td><h3>Número telefónico: </h3></td>
-            <td id="phone_cell"><h3 id="phone"></h3></td>
-            <td> <input type="button" id="edit_phone" value="Editar"></td>
+            <td id="type_title">Tipo:</td>
+            <td id="type_id"></td>
+            <td id="type_btn"></td>
         </tr>
     </table>
-    <input type="button" value="Cambiar contraseña" id="password">
-
+    <input type="button" value="Eliminar Planta" id="delete">
 </div>
-
-
-
-
-
 
 
 

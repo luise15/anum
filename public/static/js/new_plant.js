@@ -16,7 +16,23 @@ window.onload = function(){
                 })
             });
 
-            document.getElementById('registrar').onclick = registrar_planta;
+            document.getElementById('registrar').onclick = function () {
+                let tipo = document.getElementById('type');
+                let id = document.getElementById('id');
+                let name = document.getElementById('p_name');
+                if (isEmpty(name)){
+                    alert('Dale un nombre a tu planta')
+                }
+                else if (isEmpty(id)){
+                    alert('Aún no has rellenado el campo ID')
+                }
+                else{
+                    create_plant(id.value, name.value, tipo.value, user);
+                    alert('Planta creada.')
+                    //let username = localStorage.getItem('username');
+                    //window.location.href = "userView.html?usr="+username;
+                }
+            };
 
 
 
@@ -29,26 +45,6 @@ window.onload = function(){
 
 };
 
-
-function registrar_planta() {
-    let tipo = document.getElementById('type');
-    let id = document.getElementById('id');
-    let name = document.getElementById('p_name');
-    if (isEmpty(name)){
-        alert('Dale un nombre a tu planta')
-    }
-    else if (isEmpty(id)){
-        alert('Aún no has rellenado el campo ID')
-    }
-    else{
-        create_plant(id.value, name.value, tipo.value);
-        alert('Planta creada.')
-        //let username = localStorage.getItem('username');
-        //window.location.href = "userView.html?usr="+username;
-    }
-}
-
-
 function go_back() {
     window.history.back();
 }
@@ -59,8 +55,8 @@ function isEmpty(field) {
 }
 
 
-function create_plant(plant_id, plant_name, plant_type) {
-    const userId = localStorage.getItem('id');
+function create_plant(plant_id, plant_name, plant_type, user) {
+    const userId = user.uid;
     let userRef = firebase.database().ref('/users/' + userId).child('plants').push();
     userRef.set({
         "plant_id" : plant_id,
@@ -70,6 +66,7 @@ function create_plant(plant_id, plant_name, plant_type) {
         },
         "mediciones": {
 
-        }
+        },
+        "plant_photo": ""
     });
 }

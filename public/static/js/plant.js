@@ -4,6 +4,16 @@ window.onload = function () {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
+            let height = 150;
+            var plant_img = document.getElementById('plant_img');
+            plant_img.src = localStorage.getItem('plant_photo');
+            let img_percent = height / plant_img.naturalHeight;
+            let img_height = Math.floor(img_percent * plant_img.naturalHeight);
+            let img_width = Math.floor(img_percent * plant_img.naturalWidth);
+            plant_img.height = 150;
+            plant_img.width = 150;
+
+
             document.getElementById('volver').onclick = function () {
                 localStorage.removeItem('plant_id');
                 localStorage.removeItem('plant_name');

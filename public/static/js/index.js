@@ -17,8 +17,6 @@ window.onload = function () {
                 plants_btn.href = "userView.html?usr=" + user.displayName;
                 myplants.appendChild(plants_btn);
 
-
-
             }
             else{
                 // No user is signed in.
