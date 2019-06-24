@@ -27,3 +27,10 @@ Principalmente estaremos trabajando con los archivos .html y con .js
 
 El resto de las carpetas no las toquen.
 Ese ha sido un buen resumen de la distribucion de nuestro repositorio
+
+Documentacion bot
+El bot envia datos a la base de datos (realtime database) de manera automatica
+el bot esta alojado en esta pagina
+https://anum-b36a3.firebaseapp.com/bot.html
+en la seccion enviar dato se envia una medicion de temperatura/humedad/luminocidad cada vez que se aprienta enviar.
+Se crea una rama que se llama 'medicion' a la misma altura que la rama 'plant_id' y esta objeto mandado se guarda en una rama medicion
