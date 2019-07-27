@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Planta</title>
+    <style>
+        body {
+            background-color: #5ECB27;
+            color: white;
+            font-family: Trebuchet MS;}
+    </style>
+</head>
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+<script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+<!-- Import scripts with methods -->
+<script src="static/js/new_plant.js"></script>
+
+
+
+<div class="main-w3layouts wrapper">
+    <h1>Registra tu planta</h1>
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form action="#" method="post">
+                <label><input class="text" type="text" name="P_name" id="p_name" placeholder="Nombre de la planta" required=""></label>
+                <select name="type" id="type">
+                </select>
+                <label><input class="text" type="text" name="ID" id="id" placeholder="id" required=""></label>
+                <input type="button" value="Registrar" id="registrar">
+            </form>
+            <input type="button" value="Volver" id="volver">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<img src="static/images/Logo.png" width="160" height="205" alt="">
+
+</body>
+</html>

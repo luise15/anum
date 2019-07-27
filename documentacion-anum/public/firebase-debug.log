@@ -1,0 +1,45 @@
+[debug] [2019-07-27T07:43:07.200Z] ----------------------------------------------------------------------
+[debug] [2019-07-27T07:43:07.205Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2019-07-27T07:43:07.206Z] CLI Version:   6.11.0
+[debug] [2019-07-27T07:43:07.206Z] Platform:      darwin
+[debug] [2019-07-27T07:43:07.206Z] Node Version:  v10.16.0
+[debug] [2019-07-27T07:43:07.207Z] Time:          Sat Jul 27 2019 03:43:07 GMT-0400 (Chile Standard Time)
+[debug] [2019-07-27T07:43:07.207Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-27T07:43:07.237Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-27T07:43:07.238Z] > authorizing via signed-in user
+[debug] [2019-07-27T07:43:07.238Z] [iam] checking project anum-b36a3 for permissions ["firebase.projects.get"]
+[debug] [2019-07-27T07:43:07.240Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/anum-b36a3:testIamPermissions  
+
+[debug] [2019-07-27T07:43:08.572Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-27T07:43:08.575Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/anum-b36a3  
+ 
+[debug] [2019-07-27T07:43:09.690Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/luis/Desktop/documentacion-anum'...
+[info] 
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-07-27T07:43:09.715Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/820056465922/clients/_:getWebAppConfig  
+ 
+[debug] [2019-07-27T07:43:09.716Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/820056465922:getServerAppConfig  
+ 
+[debug] [2019-07-27T07:43:10.317Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: Emulator started at http://localhost:5001
+[debug] [2019-07-27T07:43:11.226Z] <<< HTTP RESPONSE 200
+[info] i  functions: Watching "/Users/luis/Desktop/documentacion-anum/functions" for Cloud Functions...
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2019-07-27T07:43:12.242Z] Functions runtime initialized.
+[debug] [2019-07-27T07:43:12.243Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[warn] ⚠  Error: Cannot find module 'package.json'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at verifyDeveloperNodeModules (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:120:32)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:435:26
+    at Generator.next (<anonymous>)
+    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:3:12)
+[warn] ⚠  Your function was killed because it raised an unhandled error.

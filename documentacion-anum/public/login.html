@@ -1,0 +1,77 @@
+<!--HTML es el que le da la estructura a la pagina web-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Iniciar Sesión</title> <!-- titulo de la pagina(lo que sale como nombre de ventana)-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Blugoon HTML Bootstrap 4 Template</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Tooplate" />
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Additional CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/tooplate-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+  </head>
+
+
+
+  <body>
+  <!-- script para conectarse a los servidores de firebase-->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+  <!-- Add additional services that you want to use -->
+  <script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+  <script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+  <script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+
+
+  <!-- importar scripts del archivo login.js, es como hacer import funciones-->
+  <!-- Import scripts with methods -->
+  <script src="static/js/login.js"></script>
+
+  <div id="page-wraper">
+  <section class="section contact-me" data-section="section4">
+
+    <h1 id="TituloEntrada">Inicio de Sesión</h1>
+
+    <p>
+      Favor ingresa tu email y contraseña.
+      <br>
+      <input type="text" placeholder="Email" id="Email" /><!--crear un cuadro rellenable, pre-escrito con 'text'-->
+      <br>
+      <input type="password" placeholder="Contraseña" id="Password" /><!--crear un cuadro rrellenable pre-escrito con 'passoword'-->
+      <br>
+      <input type="button" value="Entrar" id="boton_entrar"/><!--crear boton con el texto 'Entrar'-->
+      <!--id="boton_entrar"sirve para identificar al boton en el archivo login.js, cuando se le pone el id para identificarlo cuando"-->
+      <!--se escriba la funcion que determina que hacer la pagina web cuando se clickea en el boton-->
+      <input type="button" value="Registrar" id="boton_registrar" /><!--crear boton con el texto 'Registrar'-->
+      
+    </p>
+  </section>
+  </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/lightbox.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  </body>
+
+</html>
