@@ -1,0 +1,84 @@
+<!--HTML es el que le da la estructura a la pagina web-->
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Anum, comunicate con tu planta</title>
+    <style>
+        body {
+            background-color: #5ECB27;
+            color: white;
+            font-family: Trebuchet MS;}
+    </style>
+</head>
+
+<body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+<script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+<!-- Import scripts with methods -->
+<script src="static/js/admin_new_type.js"></script>
+
+<!-- Esta seccion crea la tabla en que se ingresan los valores que definen la planta -->
+<h1 align="center">Agrega tipo de planta</h1>
+
+<form method="post">
+    <div align="center">
+      <p>Nombre del tipo de planta: <input type="text" placeholder="ej:Rosa" id="tipo" ></p><!-- Este es el cuadro del nombre de la planta -->
+        <table border="1" rules=all><!-- Crea la tabla -->
+            <tr>
+                <td width="10">Temperatura mínima 1 [ºC]=</td> <!-- agregale columnas que tendran los textos y entradas de datos -->
+                <td width="10"> <input type="number" id="t_min1"</td>
+                <td width="10">Temperatura mínima 2 [ºC]=</td>
+                <td width="10"> <input type="number" id="t_min2"</td>
+                <td width="10">Temperatura máxima 1 [ºC]=</td>
+                <td width="10"> <input type="number" id="t_max1"</td>
+                <td width="10">Temperatura máxima 2 [ºC]=</td>
+                <td width="10"> <input type="number" id="t_max2"</td>
+            </tr>
+            <tr>
+                <td width="10">Humedad mínima 1=</td>
+                <td width="10"> <input type="number" id="h_min1"> </td>
+                <td width="10">Humedad mínima 2=</td>
+                <td width="10"> <input type="number" id="h_min2"> </td>
+                <td width="10">Humedad máxima 1=</td>
+                <td width="10"> <input type="number" id="h_max1"> </td>
+                <td width="10">Humedad máxima 2=</td>
+                <td width="10"> <input type="number" id="h_max2"> </td>
+            </tr>
+            <tr>
+                <td width="10">Iluminación mínima 1=</td>
+                <td width="10"> <input type="number" id="l_min1"> </td>
+                <td width="10">Iluminación mínima 2=</td>
+                <td width="10"> <input type="number" id="l_min2"> </td>
+                <td width="10">Iluminación máxima 1=</td>
+                <td width="10"> <input type="number" id="l_max1"> </td>
+                <td width="10">Iluminación máxima 2=</td>
+                <td width="10"> <input type="number" id="l_max2"> </td>
+            </tr>
+        </table>
+        <p>
+            <input type="button" id="guardar" value="Guardar">
+            <input type="button" id="volver" value="Volver a tipos de plantas">
+        </p>
+    </div>
+</form>
+
+<div align="center"><!-- Agrega la imagen final -->
+    <img src="static/images/fuzzy.JPG" alt="">
+</div>
+
+</body>
+</html>

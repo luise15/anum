@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Bot</title>
+    </head>
+
+
+    <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+    <script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+    <script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+    <!-- Import scripts with methods -->
+    <script src="static/js/bot.js"></script>
+
+    <h1> PlantiBot</h1>
+        <p>Hola!, soy PlantiBot. Soy un bot que simula ser una Raspberry Pi que envia datos de
+          Temperatura, Humedad e iluminacion de una planta monitoreada con Anum.
+        </p>
+        <p> Fui creado para simular la app Anum en producción.</p>
+        <p> Tengo dos modos de funcionamiento:</p>
+
+  <h2>Modo 1: Streaming de datos con cantidad de pantas</h2>
+      <p>El modo 1 envia al servidor continuamente mediciones de Temperatura, Humedad e iluminación</p>
+      <p>Se debe ingresar la cantidad de plantas que se quiere simular y el bot enviara la cantidad datos que simulen esa cantidad de plantas.</p>
+      <p>Este modo se escribio para probar la app en producción cuando muchos plantas esten activawºs.</p>
+      <p>
+          <br>
+          <input type="number" placeholder="Cantidad de plantas a simular" id="n_plantas" />
+          <br>
+          <label class="anim">
+              <input type="checkbox" class="checkbox" required="" id="checkbox_modo1">
+              <span>Comenzar streaming modo 1</span>
+              <p id="bot_status_modo1"></p>
+          </label>
+      </p>
+
+
+    <h2>Modo 2: Streaming de datos</h2>
+        <p>El modo 1 envia al servidor continuamente mediciones de Temperatura, Humedad e iluminación.</p>
+        <p>Se debe ingresar valores máximos y mínimos, el bot enviara valores entre esos limites</p>
+        <p>
+            <br>
+            <input type="text" placeholder="ID planta" id="id" />
+            <br>
+            <input type="number" placeholder="Diferencia de tiempo [s]" id="dif_t" />
+            <br>
+            <input type="number" placeholder="Temperatura max" id="t_max" />
+            <input type="number" placeholder="Temperatura min" id="t_min" />
+            <br>
+            <input type="number" placeholder="Humedad max" id="h_max" />
+            <input type="number" placeholder="Humedad min" id="h_min" />
+            <br>
+            <input type="number" placeholder="Iluminación max" id="l_max" />
+            <input type="number" placeholder="Iluminación min" id="l_min" />
+            <br>
+            <label class="anim">
+                <input type="checkbox" class="checkbox" required="" id="checkbox">
+                <span>Comenzar streaming modo 2</span>
+                <p id="bot_status"></p>
+            </label>
+        </p>
+
+    <h2>Modo 3: Enviar dato</h2>
+        <p>El modo 3 envia soló una medición al servidor</p>
+            <br>
+            <input type="text" placeholder="ID planta" id="id2" />
+            <br>
+            <input type="number" placeholder="Temperatura" id="temp" />
+            <br>
+            <input type="number" placeholder="Humedad" id="humid" />
+            <br>
+            <input type="number" placeholder="Iluminación" id="lumen" />
+            <br>
+            <input type="button" value="Enviar" id="confirmar">
+        </p>
+    </body>
+
+</html>

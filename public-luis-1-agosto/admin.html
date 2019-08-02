@@ -1,0 +1,63 @@
+<!--HTML es el que le da la estructura a la pagina web-->
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Anum, comunicate con tu planta</title>
+    <style>
+        body {
+            background-color: #5ECB27;
+            color: white;
+            font-family: Trebuchet MS;}
+    </style>
+</head>
+
+<body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+<script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+<!-- Import scripts with methods -->
+<!----------------------------------------------------------------------------------------------------------------------------------------------->
+
+<h1 align="center">Administración de Usuarios y Plantas</h1>
+<p>Esta pagina es la pagina del administrador. Aqui el administrador puede usar los siguientes servicios</p>
+<!-- --------------------------------------------------- USUARIOS ---------------------------------------------------------------------------------------- -->
+<h2>Crear Usuario</h2>
+    <p>Para crear un usuario siga el siguiente link
+      <a href="register.html">Crear Usuario</a>
+    </p>
+<h2>Mail a Usuario</h2>
+    <p>En esta sección el administrador puede buscar los email de los usuarios para comunicarse con ellos.</p>
+    <p>El admin ingresa el nombre del usuario y la app le muestra el mail del usuario correspondiente.</p>
+    <label><input class="text" type="text" name="Username_buscador" id="username_buscador" placeholder="Nombre usuario a buscar" required="" size="28"></label></p>
+<h2>Eliminar Usuario</h2>
+    Para eliminar un usuario, ingrese el email del usuario a usuario a eliminar:
+    <p>
+          <input class="text email" type="email" name="email " id="email_a_eliminar" placeholder="Email del usuario a eliminar" required="" size="28">
+    </p>
+<!------------------------------------------------------ PLANTAS ----------------------------------------------------------------------------------------->
+<h2>Agregar tipo de planta</h2>
+
+    <p>Para agregar un tipo de planta disponibles haga click en el siguiente link:
+      <a href="admin_new_type.html">Agregar Tipo de Planta</a>
+    </p>
+
+<h2>Ver tipos de planta disponibles</h2>
+    <p>Para ver los tipos de planta disponibles y sus caracteristicas haga click en el siguiente link:
+        <a href="admin_plant_types.html">Tipos de Plantas Disponibles</a>
+    </p>
+
+</body>
+</html>
