@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Prueba Anum</title>
+  <style>
+    body
+    {
+      background-color: #5ECB27;
+      color: white;
+      font-family: Trebuchet MS;
+    }
+  </style>
+
+
+</head>
+
+<body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+<!-- Add additional services that you want to use -->
+<script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+<script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+<script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+<!-- Import scripts with methods -->
+<script type="module" src="static/js/register.js"></script>
+
+  <!-- https://codepen.io/colorlib/pen/aaaoVJ -->
+<!-- Esta division (es decir, seccion de la pagina web) crea los cuadros de input de datos y los textos que se muestran-->
+
+  <div align="center" class="main-w3layouts wrapper">
+    <h1>Registrate!</h1><!-- Agrega el titulo de la pagina-->
+
+    <div class="main-agileinfo">
+      <div class="agileits-top">
+        <form action="#" method="post">
+              <p><!-- Esto crea los cuadros de entrada de texto-->
+                    <label><input class="text" type="text" name="Username" id="username" placeholder="Nombre/alias" required=""></label>
+                    <label><input class="text email" type="email" name="email" id="email" placeholder="Email" required=""></label>
+              </p>
+              <p>
+                    <label><input class="text" type="password" name="password" id="pass1" placeholder="Contraseña" required=""></label>
+                    <label><input class="text w3lpass" type="password" name="password" id="pass2" placeholder="Confirmar contraseña" required=""></label>
+              </p>
+
+          <div class="wthree-text">
+            <label class="anim"><!-- Esto crea los checkbox-->
+              <input type="checkbox" class="checkbox" required="" id="checkbox">
+              <span>Acepto los términos y condiciones</span>
+            </label>
+            <div class="clear"> </div>
+          </div>
+          <input type="button" value="Registrarse" id="signup"><!-- Esto crea los botonones que me te llevan a otras paginas-->
+        </form>
+        <p>¿Ya tienes una cuenta? <a href="index.html"> Accede a tu cuenta!</a></p>
+      </div>
+    </div>
+  </div>
+<!-- Esta division (es decir, seccion de la pagina web) crea los cuadros de input de datos y los textos que se muestran-->
+
+</body>
+
+</html>

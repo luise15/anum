@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Editar Usuario</title>
+        <style>
+            body
+            {
+                background-color: #5ECB27;
+                color: white;
+                font-family: Trebuchet MS;
+            }
+            #uploader {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 50%;
+                margin-bottom: 10px;
+            }
+        </style>
+    </head>
+
+<body>
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+      <script src="/__/firebase/6.2.0/firebase-app.js"></script>
+
+      <!-- Add additional services that you want to use -->
+      <script src="/__/firebase/5.9.1/firebase-auth.js"></script>
+      <script src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+      <script src="/__/firebase/5.9.1/firebase-functions.js"></script>
+      <script src="/__/firebase/5.9.1/firebase-storage.js"></script>
+
+      <!-- Initialize Firebase -->
+      <!-- <script src="/__/firebase/init.js"></script> -->
+      <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+
+      <!-- Import scripts with methods -->
+      <script src="static/js/edit_user.js"></script>
+      <!-- Esta seccion indentifica a la pagina web con el servicio de firebase para acceder a la base de datos -->
+      <script>
+          // Your web app's Firebase configuration
+
+          var firebaseConfig = {
+              apiKey: "AIzaSyBUolK237SWyR8F18V19k-PTQ3BXLzhL8Y",
+              authDomain: "anum-b36a3.firebaseapp.com",
+              databaseURL: "https://anum-b36a3.firebaseio.com",
+              projectId: "anum-b36a3",
+              storageBucket: "anum-b36a3.appspot.com",
+              messagingSenderId: "820056465922",
+              appId: "1:820056465922:web:9b010e662e6bd187"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+      </script>
+
+      <!-- De aqui hacia abajo se especifican las cosas que aparecen en la pagina -->
+      <input type="button" value="Volver" id="volver">
+      <h1 align="center">Detalles del Usuario</h1>
+
+      <div align="center">
+          <!-- Agrega una tabla en la que ira la imagen de perfil del usuario -->
+          <img id="photo" alt="" width="50%" height="50%" src="">
+          <table id="upload_photo">
+          </table>
+          <!-- Esta seccion agrega una tabla con los botones para cambiar los datos del usuario -->
+
+          <table>
+              <tr>
+                  <td><h3 id="username_label">Nombre de usuario: </h3></td><!-- Esto agrega columnas para editar nombre de usuario -->
+                  <td id="username_cell"><h3 id="username"></h3></td>
+                  <td id="username_btn"></td>
+              </tr>
+              <tr>
+                  <td><h3 id="email_label">Email: </h3></td><!-- Esto agrega columnas para editar el mail -->
+                  <td id="mail_cell"><h3 id="mail"></h3></td>
+                  <td id="email_btn"><input type="button" value="Editar"></td>
+              </tr>
+              <tr>
+                  <td><h3>Número telefónico: </h3></td><!-- Esto agrega columnas para editar el numero de telefono -->
+                  <td id="phone_cell"><h3 id="phone"></h3></td>
+                  <td> <input type="button" id="edit_phone" value="Editar"></td>
+              </tr>
+          </table>
+          <input type="button" value="Cambiar contraseña" id="password">
+
+      </div>
+
+      </body>
+</html>
