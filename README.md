@@ -1,5 +1,7 @@
 Anum
-Este proyecto busca formar un puente sensorial que comunique los sentimientos de las plantas con los sentimientos de los seres humanos con que interactúa
+Este proyecto busca formar un puente sensorial que comunique los sentimientos de las plantas con los sentimientos de los seres humanos con que interactúa.
+
+https://anum-b36a3.web.app/
 
 ¿Como entender como estan distribuidos los archivos en este repositorio?
 La carpeta más importante y con la que trabajaremos se llama public. 
